@@ -1,0 +1,431 @@
+
+<style>
+
+@font-face {
+  font-family: 'Times Newer Roman';
+  src: url('./fonts/TimesNewerRoman-Regular.otf') format('opentype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Times Newer Roman';
+  src: url('./fonts/TimesNewerRoman-Italic.otf') format('opentype');
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Times Newer Roman';
+  src: url('./fonts/TimesNewerRoman-Bold.otf') format('opentype');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Times Newer Roman';
+  src: url('./fonts/TimesNewerRoman-BoldItalic.otf') format('opentype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+  @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IBM+Plex+Sans+KR:wght@300;400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --vv-purple: #3C1775;
+    --vv-purple-secondary: #4A247F;
+    --vv-accent: #6B4BA3;
+    --vv-bg: #F3F2F4;
+    --vv-text: #1a1018;
+    --vv-muted: #7a6f83;
+    --vv-border: rgba(60, 23, 117, 0.15);
+  }
+
+  body { background: var(--vv-bg); color: var(--vv-text); }
+
+  .page { font-family: 'IBM Plex Sans KR', sans-serif; background: var(--vv-bg); min-height: 100vh; }
+
+  /* NAV */
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 28px 60px;
+    border-bottom: 0.5px solid var(--vv-border);
+    background: var(--vv-bg);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav-logo {
+    font-family: 'Times Newer Roman', serif;
+    font-size: 18px; letter-spacing: 0.08em;
+    color: var(--vv-purple);
+    display: flex; flex-direction: column; line-height: 1.1;
+  }
+  .nav-logo span { font-size: 10px; letter-spacing: 0.2em; color: var(--vv-muted); font-family: 'IBM Plex Sans KR', sans-serif; font-style: italic; }
+  .nav-links { display: flex; gap: 40px; }
+  .nav-links a { font-size: 12px; letter-spacing: 0.14em; color: var(--vv-muted); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--vv-purple); }
+  .nav-cta { font-size: 11px; letter-spacing: 0.16em; color: var(--vv-purple); border: 0.5px solid var(--vv-purple); padding: 8px 20px; text-decoration: none; text-transform: uppercase; transition: all 0.2s; }
+  .nav-cta:hover { background: var(--vv-purple); color: #fff; }
+
+  /* HERO */
+  .hero {
+    padding: 120px 60px 80px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    min-height: 88vh;
+    border-bottom: 0.5px solid var(--vv-border);
+  }
+  .hero-left {}
+  .hero-eyebrow {
+    font-size: 10px; letter-spacing: 0.24em; color: var(--vv-muted);
+    text-transform: uppercase; margin-bottom: 28px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::before { content: ''; display: block; width: 24px; height: 0.5px; background: var(--vv-muted); }
+  .hero-title {
+    font-family: 'Times Newer Roman', serif;
+    font-size: 52px; line-height: 1.15;
+    color: var(--vv-purple);
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+  }
+  .hero-title em { font-style: italic; color: var(--vv-accent); }
+  .hero-sub {
+    font-size: 14px; line-height: 1.8;
+    color: var(--vv-muted); max-width: 360px;
+    margin-bottom: 48px;
+  }
+  .hero-sub strong { color: var(--vv-text); font-weight: 500; }
+  .hero-slogan-ko {
+    font-size: 11px; letter-spacing: 0.08em; color: var(--vv-muted);
+    border-left: 2px solid var(--vv-purple); padding-left: 14px;
+    margin-bottom: 40px; line-height: 1.6;
+  }
+  .hero-actions { display: flex; align-items: center; gap: 28px; }
+  .btn-primary { background: var(--vv-purple); color: #fff; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; padding: 14px 32px; text-decoration: none; transition: background 0.2s; }
+  .btn-primary:hover { background: var(--vv-purple-secondary); }
+  .btn-ghost { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--vv-muted); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+  .btn-ghost span { font-size: 16px; transition: transform 0.2s; }
+  .btn-ghost:hover span { transform: translateX(4px); }
+
+  /* HERO RIGHT — Chart vis */
+  .hero-visual {
+    background: #fff;
+    border: 0.5px solid var(--vv-border);
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .chart-label {
+    font-size: 10px; letter-spacing: 0.18em; color: var(--vv-muted);
+    text-transform: uppercase; margin-bottom: 24px;
+    display: flex; justify-content: space-between;
+  }
+  .chart-label strong { color: var(--vv-purple); font-weight: 500; }
+  .cycle-chart { position: relative; height: 160px; margin-bottom: 24px; }
+  .cycle-chart svg { width: 100%; height: 100%; }
+  .chart-phases {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+  }
+  .phase {
+    padding: 10px 12px;
+    background: var(--vv-bg);
+    border: 0.5px solid var(--vv-border);
+  }
+  .phase-name { font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--vv-muted); margin-bottom: 4px; }
+  .phase-day { font-size: 18px; font-weight: 500; color: var(--vv-purple); font-family: 'Times Newer Roman', serif; }
+  .phase-note { font-size: 9px; color: var(--vv-muted); margin-top: 2px; }
+  .vis-watermark {
+    position: absolute; bottom: 16px; right: 20px;
+    font-family: 'Times Newer Roman', serif;
+    font-size: 11px; color: var(--vv-border); letter-spacing: 0.12em;
+  }
+
+  /* BRAND DIVIDE */
+  .brand-bar {
+    display: grid; grid-template-columns: 1fr 1fr;
+    border-bottom: 0.5px solid var(--vv-border);
+  }
+  .brand-cell {
+    padding: 48px 60px;
+    border-right: 0.5px solid var(--vv-border);
+  }
+  .brand-cell:last-child { border-right: none; }
+  .brand-tag { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--vv-muted); margin-bottom: 10px; }
+  .brand-name { font-family: 'Times Newer Roman', serif; font-size: 26px; color: var(--vv-purple); margin-bottom: 10px; }
+  .brand-desc { font-size: 12px; color: var(--vv-muted); line-height: 1.7; max-width: 280px; }
+
+  /* CONTENT SECTION */
+  .section { padding: 100px 60px; border-bottom: 0.5px solid var(--vv-border); }
+  .section-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 60px; }
+  .section-num { font-family: 'Times Newer Roman', serif; font-size: 11px; color: var(--vv-muted); margin-right: 16px; }
+  .section-title { font-family: 'Times Newer Roman', serif; font-size: 32px; color: var(--vv-purple); }
+  .section-sub { font-size: 11px; color: var(--vv-muted); letter-spacing: 0.12em; text-transform: uppercase; }
+
+  /* INSIGHTS GRID */
+  .insights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--vv-border); border: 0.5px solid var(--vv-border); }
+  .insight-card { background: var(--vv-bg); padding: 36px 32px; }
+  .insight-num { font-family: 'Times Newer Roman', serif; font-size: 42px; color: var(--vv-border); margin-bottom: 16px; }
+  .insight-head { font-size: 14px; font-weight: 500; color: var(--vv-text); margin-bottom: 10px; line-height: 1.4; }
+  .insight-body { font-size: 12px; color: var(--vv-muted); line-height: 1.7; }
+  .insight-bar { width: 32px; height: 2px; background: var(--vv-purple); margin-top: 20px; }
+
+  /* TRAJECTORY SECTION */
+  .trajectory { background: var(--vv-purple); padding: 100px 60px; color: #fff; }
+  .traj-label { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 40px; }
+  .traj-headline { font-family: 'Times Newer Roman', serif; font-size: 48px; line-height: 1.2; max-width: 600px; margin-bottom: 40px; color: #fff; }
+  .traj-headline em { color: rgba(255,255,255,0.55); }
+  .traj-slogan { font-size: 12px; letter-spacing: 0.08em; color: rgba(255,255,255,0.6); border-top: 0.5px solid rgba(255,255,255,0.2); padding-top: 28px; line-height: 1.8; max-width: 400px; }
+  .traj-slogan strong { color: rgba(255,255,255,0.9); font-weight: 400; }
+  .traj-cta { margin-top: 48px; }
+  .btn-white { border: 0.5px solid rgba(255,255,255,0.4); color: #fff; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; padding: 14px 32px; text-decoration: none; display: inline-block; transition: background 0.2s; }
+  .btn-white:hover { background: rgba(255,255,255,0.12); }
+
+  /* PIPELINE SECTION */
+  .pipeline { display: flex; gap: 0; border: 0.5px solid var(--vv-border); }
+  .pipe-step { flex: 1; padding: 32px 28px; border-right: 0.5px solid var(--vv-border); position: relative; }
+  .pipe-step:last-child { border-right: none; }
+  .pipe-num { font-family: 'Times Newer Roman', serif; font-size: 11px; color: var(--vv-muted); margin-bottom: 12px; }
+  .pipe-title { font-size: 12px; font-weight: 500; color: var(--vv-text); margin-bottom: 8px; letter-spacing: 0.04em; }
+  .pipe-desc { font-size: 11px; color: var(--vv-muted); line-height: 1.6; }
+  .pipe-arrow { position: absolute; right: -10px; top: 50%; transform: translateY(-50%); font-size: 12px; color: var(--vv-muted); z-index: 1; background: var(--vv-bg); padding: 2px 0; }
+
+  /* FOOTER */
+  footer { padding: 60px 60px 40px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .foot-logo { font-family: 'Times Newer Roman', serif; font-size: 22px; color: var(--vv-purple); }
+  .foot-tagline { font-size: 10px; color: var(--vv-muted); letter-spacing: 0.14em; margin-top: 6px; }
+  .foot-right { text-align: right; font-size: 10px; color: var(--vv-muted); letter-spacing: 0.08em; line-height: 1.8; }
+
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 60px 24px 48px; min-height: auto; gap: 48px; }
+    .hero-title { font-size: 36px; }
+    .brand-bar { grid-template-columns: 1fr; }
+    .brand-cell { border-right: none; border-bottom: 0.5px solid var(--vv-border); padding: 36px 24px; }
+    .section { padding: 60px 24px; }
+    .insights { grid-template-columns: 1fr; }
+    .trajectory { padding: 60px 24px; }
+    .traj-headline { font-size: 32px; }
+    .pipeline { flex-direction: column; }
+    .pipe-step { border-right: none; border-bottom: 0.5px solid var(--vv-border); }
+    .pipe-arrow { display: none; }
+    footer { flex-direction: column; gap: 24px; padding: 40px 24px 32px; }
+    .foot-right { text-align: left; }
+  }
+</style>
+
+<div class="page">
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      Vivatory
+      <span>비바토리</span>
+    </div>
+    <div class="nav-links">
+      <a href="/vivatory/">Home</a>
+      <a href="/vivatory/tools/">Tools</a>
+      <a href="/vivatory/cases/">Cases</a>
+    </div>
+    <a class="nav-cta" href="#">시작하기</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Trajectory Design</div>
+      <h1 class="hero-title">
+        Draw your<br>
+        <em>trajectory</em><br>
+        towards<br>better health
+      </h1>
+      <p class="hero-sub">
+        삶을 기록하지 않는다.<br>
+        <strong>패턴을 해석한다.</strong><br><br>
+        당신의 데이터는 이미 말하고 있다.<br>우리는 그것을 듣는 방법을 설계한다.
+      </p>
+      <div class="hero-slogan-ko">
+        더 건강한 당신을 향한 궤적을 그립니다<br>
+        <span style="opacity:0.6; font-size:10px;">내일의 나를 그리는 오늘의 도구, Vivatory 드림</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn-primary" href="/vivatory/tools/">궤적 시작하기</a>
+        <a class="btn-ghost" href="/vivatory/cases/">더 알아보기 <span>→</span></a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="chart-label">
+        <span>Cycle Trajectory</span>
+        <strong>12 months</strong>
+      </div>
+      <div class="cycle-chart">
+        <svg viewBox="0 0 400 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#3C1775" stop-opacity="0.08"/>
+              <stop offset="100%" stop-color="#3C1775" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <!-- Grid lines -->
+          <line x1="0" y1="40" x2="400" y2="40" stroke="#3C1775" stroke-opacity="0.06" stroke-width="0.5"/>
+          <line x1="0" y1="80" x2="400" y2="80" stroke="#3C1775" stroke-opacity="0.06" stroke-width="0.5"/>
+          <line x1="0" y1="120" x2="400" y2="120" stroke="#3C1775" stroke-opacity="0.06" stroke-width="0.5"/>
+          <!-- Fill area -->
+          <path d="M0,100 C30,80 50,30 80,50 C110,70 130,90 160,40 C190,10 210,60 240,70 C270,80 290,20 320,45 C350,65 380,90 400,75 L400,160 L0,160 Z" fill="url(#g1)"/>
+          <!-- Main curve -->
+          <path d="M0,100 C30,80 50,30 80,50 C110,70 130,90 160,40 C190,10 210,60 240,70 C270,80 290,20 320,45 C350,65 380,90 400,75" fill="none" stroke="#3C1775" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- Data points -->
+          <circle cx="80" cy="50" r="3" fill="#3C1775"/>
+          <circle cx="160" cy="40" r="3" fill="#3C1775"/>
+          <circle cx="240" cy="70" r="3" fill="#6B4BA3"/>
+          <circle cx="320" cy="45" r="3" fill="#3C1775"/>
+          <!-- Highlight dot -->
+          <circle cx="320" cy="45" r="6" fill="none" stroke="#3C1775" stroke-width="1" stroke-opacity="0.4"/>
+          <!-- Month markers -->
+          <text x="0" y="155" font-size="8" fill="#3C1775" fill-opacity="0.35" font-family="IBM Plex Sans KR">Mar</text>
+          <text x="95" y="155" font-size="8" fill="#3C1775" fill-opacity="0.35" font-family="IBM Plex Sans KR">Jun</text>
+          <text x="188" y="155" font-size="8" fill="#3C1775" fill-opacity="0.35" font-family="IBM Plex Sans KR">Sep</text>
+          <text x="285" y="155" font-size="8" fill="#3C1775" fill-opacity="0.35" font-family="IBM Plex Sans KR">Dec</text>
+          <text x="375" y="155" font-size="8" fill="#3C1775" fill-opacity="0.35" font-family="IBM Plex Sans KR">Mar</text>
+        </svg>
+      </div>
+      <div class="chart-phases">
+        <div class="phase">
+          <div class="phase-name">월경</div>
+          <div class="phase-day">1–5</div>
+          <div class="phase-note">관찰 시작</div>
+        </div>
+        <div class="phase">
+          <div class="phase-name">난포기</div>
+          <div class="phase-day">6–13</div>
+          <div class="phase-note">에너지 상승</div>
+        </div>
+        <div class="phase">
+          <div class="phase-name">배란기</div>
+          <div class="phase-day">14–16</div>
+          <div class="phase-note">정점</div>
+        </div>
+        <div class="phase">
+          <div class="phase-name">황체기</div>
+          <div class="phase-day">17–28</div>
+          <div class="phase-note">패턴 해석</div>
+        </div>
+      </div>
+      <div class="vis-watermark">Vivatory</div>
+    </div>
+  </section>
+
+  <!-- BRAND DUAL -->
+  <div class="brand-bar">
+    <div class="brand-cell">
+      <div class="brand-tag">System</div>
+      <div class="brand-name">Vivatory 비바토리</div>
+      <div class="brand-desc">개념 설계, 궤적 디자인, 제품 중심.<br>구조적 해석을 통해 삶을 도구화한다.</div>
+    </div>
+    <div class="brand-cell">
+      <div class="brand-tag">Narrative</div>
+      <div class="brand-name"><a href="/vivatory/cases/denev/" style="text-decoration:none;color:inherit;">Denev 데네브</a></div>
+      <div class="brand-desc">개인적, 관찰적, 서사 중심.<br>살아진 경험을 언어로 전환하는 목소리.</div>
+    </div>
+  </div>
+
+  <!-- INSIGHTS -->
+  <section class="section">
+    <div class="section-header">
+      <div style="display:flex; align-items:baseline; gap:16px;">
+        <span class="section-num">01</span>
+        <h2 class="section-title">What we interpret</h2>
+      </div>
+      <span class="section-sub">Observation → Pattern → Implication</span>
+    </div>
+    <div class="insights">
+      <div class="insight-card">
+        <div class="insight-num">①</div>
+        <div class="insight-head">데이터는 보고가 아니다</div>
+        <div class="insight-body">숫자는 사실을 전달하지 않는다. 시간 위에 놓였을 때, 패턴이 된다. 패턴은 의미가 된다.</div>
+        <div class="insight-bar"></div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-num">②</div>
+        <div class="insight-head">주기는 예측이 아니라 해석이다</div>
+        <div class="insight-body">28일은 평균이다. 당신의 주기는 다른 언어로 말한다. 우리는 그 언어를 읽는다.</div>
+        <div class="insight-bar"></div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-num">③</div>
+        <div class="insight-head">궤적은 목적지가 아니라 방향이다</div>
+        <div class="insight-body">더 나은 건강은 도달하는 것이 아니다. 매일 조금씩 선명해지는 방향이다.</div>
+        <div class="insight-bar"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAJECTORY STATEMENT -->
+  <section class="trajectory">
+    <div class="traj-label">Core Philosophy</div>
+    <h2 class="traj-headline">
+      Not documenting life,<br>
+      but <em>interpreting</em><br>
+      patterns within it
+    </h2>
+    <div class="traj-slogan">
+      <strong>Draw your trajectory towards better health</strong><br>
+      더 건강한 당신을 향한 궤적을 그립니다
+    </div>
+    <div class="traj-cta">
+      <a class="btn-white" href="#">궤적을 시작하다</a>
+    </div>
+  </section>
+
+  <!-- PIPELINE -->
+  <section class="section">
+    <div class="section-header">
+      <div style="display:flex; align-items:baseline; gap:16px;">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Content Pipeline</h2>
+      </div>
+      <span class="section-sub">Experience → Insight</span>
+    </div>
+    <div class="pipeline">
+      <div class="pipe-step">
+        <div class="pipe-num">Step 1</div>
+        <div class="pipe-title">Input</div>
+        <div class="pipe-desc">경험 / 데이터 / 관찰</div>
+        <div class="pipe-arrow">›</div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">Step 2</div>
+        <div class="pipe-title">Extraction</div>
+        <div class="pipe-desc">패턴, 이탈, 긴장을 식별</div>
+        <div class="pipe-arrow">›</div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">Step 3</div>
+        <div class="pipe-title">Interpretation</div>
+        <div class="pipe-desc">구조적으로 무엇을 의미하는가</div>
+        <div class="pipe-arrow">›</div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">Step 4</div>
+        <div class="pipe-title">Compression</div>
+        <div class="pipe-desc">핵심 문장 하나로 압축</div>
+        <div class="pipe-arrow">›</div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">Step 5</div>
+        <div class="pipe-title">Output</div>
+        <div class="pipe-desc">캡션 + 비주얼 디렉션</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="foot-logo">Vivatory</div>
+      <div class="foot-tagline">내일의 나를 그리는 오늘의 도구</div>
+    </div>
+    <div class="foot-right">
+      비바토리 · Denev 데네브<br>
+      Draw your trajectory towards better health<br>
+      <span style="opacity:0.4">© 2025 Vivatory</span>
+    </div>
+  </footer>
+
+</div>
