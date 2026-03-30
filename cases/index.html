@@ -21,6 +21,16 @@
     src: url('../fonts/Pretendard-1.3.9/public/static/Pretendard-Medium.otf') format('opentype');
     font-weight: 500;
   }
+  @font-face {
+    font-family: 'Paperlogy';
+    src: url('../fonts/Paperlogy/Paperlogy-4Regular.ttf') format('truetype');
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'Paperlogy';
+    src: url('../fonts/Paperlogy/Paperlogy-7Bold.ttf') format('truetype');
+    font-weight: 700;
+  }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
@@ -62,7 +72,8 @@
   }
   .page-eyebrow::before { content: ''; display: block; width: 24px; height: 0.5px; background: var(--vv-muted); }
   .page-title {
-    font-family: 'Times Newer Roman', serif;
+    font-family: 'Paperlogy', sans-serif;
+    font-weight: 700;
     font-size: 42px; color: var(--vv-purple); line-height: 1.15;
   }
 
@@ -85,8 +96,14 @@
   .case-card:hover { background: #eeecf0; }
   .case-tag { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--vv-muted); margin-bottom: 16px; }
   .case-title {
-    font-family: 'Times Newer Roman', serif;
-    font-size: 22px; color: var(--vv-purple); margin-bottom: 12px; line-height: 1.3;
+    font-family: 'Paperlogy', sans-serif;
+    font-weight: 700;
+    font-size: 22px; color: var(--vv-purple); margin-bottom: 4px; line-height: 1.3;
+  }
+  .case-subtitle {
+    font-family: 'Paperlogy', sans-serif;
+    font-weight: 400;
+    font-size: 13px; color: var(--vv-muted); margin-bottom: 12px; line-height: 1.4;
   }
   .case-desc { font-size: 12px; color: var(--vv-muted); line-height: 1.7; max-width: 320px; }
   .case-arrow { margin-top: 28px; font-size: 12px; color: var(--vv-accent); letter-spacing: 0.12em; }
@@ -127,8 +144,9 @@
 <div class="cases-grid">
   <a class="case-card" href="/vivatory/cases/periodic-chart/">
     <div class="case-tag">Chart · Cycle</div>
-    <div class="case-title">사이클 회고<br>2025.04–2026.02</div>
-    <div class="case-desc">11개월간의 생체 리듬 데이터를 시각화한 주기 궤적 차트. 패턴을 드러내고 방향을 읽는다.</div>
+    <div class="case-title">Periodic Chart</div>
+    <div class="case-subtitle">Case review : Denev, 2025.04 – 2026.02</div>
+    <div class="case-desc">highlight the patterns from your data</div>
     <div class="case-arrow">View case →</div>
   </a>
 </div>
