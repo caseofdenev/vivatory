@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Cases — Vivatory</title>
+<style>
+  @font-face {
+    font-family: 'Times Newer Roman';
+    src: url('../fonts/TimesNewerRoman/TimesNewerRoman-Regular.otf') format('opentype');
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('../fonts/Pretendard-1.3.9/public/static/Pretendard-Regular.otf') format('opentype');
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('../fonts/Pretendard-1.3.9/public/static/Pretendard-Medium.otf') format('opentype');
+    font-weight: 500;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --vv-purple: #3C1775;
+    --vv-accent: #6B4BA3;
+    --vv-bg: #F3F2F4;
+    --vv-text: #1a1018;
+    --vv-muted: #7a6f83;
+    --vv-border: rgba(60, 23, 117, 0.15);
+  }
+  body { background: var(--vv-bg); color: var(--vv-text); font-family: 'Pretendard', sans-serif; }
+
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 28px 60px;
+    border-bottom: 0.5px solid var(--vv-border);
+    position: sticky; top: 0; z-index: 100;
+    background: var(--vv-bg);
+  }
+  .nav-logo {
+    font-family: 'Times Newer Roman', serif;
+    font-size: 18px; letter-spacing: 0.08em;
+    color: var(--vv-purple); text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 40px; }
+  .nav-links a { font-size: 12px; letter-spacing: 0.14em; color: var(--vv-muted); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--vv-purple); }
+  .nav-cta { font-size: 11px; letter-spacing: 0.16em; color: var(--vv-purple); border: 0.5px solid var(--vv-purple); padding: 8px 20px; text-decoration: none; text-transform: uppercase; transition: all 0.2s; }
+  .nav-cta:hover { background: var(--vv-purple); color: #fff; }
+
+  .page-header {
+    padding: 80px 60px 60px;
+    border-bottom: 0.5px solid var(--vv-border);
+  }
+  .page-eyebrow {
+    font-size: 10px; letter-spacing: 0.24em; color: var(--vv-muted);
+    text-transform: uppercase; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .page-eyebrow::before { content: ''; display: block; width: 24px; height: 0.5px; background: var(--vv-muted); }
+  .page-title {
+    font-family: 'Times Newer Roman', serif;
+    font-size: 42px; color: var(--vv-purple); line-height: 1.15;
+  }
+
+  .cases-grid {
+    padding: 60px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--vv-border);
+    border-bottom: 0.5px solid var(--vv-border);
+  }
+  .case-card {
+    background: var(--vv-bg);
+    padding: 48px 40px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: background 0.2s;
+  }
+  .case-card:hover { background: #eeecf0; }
+  .case-tag { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--vv-muted); margin-bottom: 16px; }
+  .case-title {
+    font-family: 'Times Newer Roman', serif;
+    font-size: 22px; color: var(--vv-purple); margin-bottom: 12px; line-height: 1.3;
+  }
+  .case-desc { font-size: 12px; color: var(--vv-muted); line-height: 1.7; max-width: 320px; }
+  .case-arrow { margin-top: 28px; font-size: 12px; color: var(--vv-accent); letter-spacing: 0.12em; }
+
+  footer { padding: 60px 60px 40px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .foot-logo { font-family: 'Times Newer Roman', serif; font-size: 22px; color: var(--vv-purple); }
+  .foot-tagline { font-size: 10px; color: var(--vv-muted); letter-spacing: 0.14em; margin-top: 6px; }
+  .foot-right { text-align: right; font-size: 10px; color: var(--vv-muted); letter-spacing: 0.08em; line-height: 1.8; }
+
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    .nav-links { display: none; }
+    .page-header { padding: 48px 24px 40px; }
+    .page-title { font-size: 30px; }
+    .cases-grid { grid-template-columns: 1fr; padding: 0; }
+    footer { flex-direction: column; gap: 24px; padding: 40px 24px 32px; }
+    .foot-right { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/vivatory/">Vivatory</a>
+  <div class="nav-links">
+    <a href="/vivatory/">Home</a>
+    <a href="/vivatory/tools/">Tools</a>
+    <a href="/vivatory/cases/" class="active">Cases</a>
+  </div>
+  <a class="nav-cta" href="#">시작하기</a>
+</nav>
+
+<div class="page-header">
+  <div class="page-eyebrow">Cases</div>
+  <h1 class="page-title">궤적의 기록들</h1>
+</div>
+
+<div class="cases-grid">
+  <a class="case-card" href="/vivatory/cases/periodic-chart/">
+    <div class="case-tag">Chart · Cycle</div>
+    <div class="case-title">사이클 회고<br>2025.04–2026.02</div>
+    <div class="case-desc">11개월간의 생체 리듬 데이터를 시각화한 주기 궤적 차트. 패턴을 드러내고 방향을 읽는다.</div>
+    <div class="case-arrow">View case →</div>
+  </a>
+</div>
+
+<footer>
+  <div>
+    <div class="foot-logo">Vivatory</div>
+    <div class="foot-tagline">내일의 나를 그리는 오늘의 도구</div>
+  </div>
+  <div class="foot-right">
+    비바토리 · Denev 데네브<br>
+    Draw your trajectory towards better health<br>
+    <span style="opacity:0.4">© 2025 Vivatory</span>
+  </div>
+</footer>
+
+</body>
+</html>
