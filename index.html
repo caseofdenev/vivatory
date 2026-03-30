@@ -86,8 +86,7 @@
     color: var(--vv-purple);
     display: flex; flex-direction: column; line-height: 1.1;
   }
-  .nav-logo span { font-size: 10px; letter-spacing: 0.2em; color: var(--vv-muted); font-family: 'Pretendard', sans-serif; font-style: italic; }
-  .nav-links { display: flex; gap: 40px; }
+.nav-links { display: flex; gap: 40px; }
   .nav-links a { font-size: 12px; letter-spacing: 0.14em; color: var(--vv-muted); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover { color: var(--vv-purple); }
   .nav-cta { font-size: 11px; letter-spacing: 0.16em; color: var(--vv-purple); border: 0.5px solid var(--vv-purple); padding: 8px 20px; text-decoration: none; text-transform: uppercase; transition: all 0.2s; }
@@ -96,7 +95,7 @@
   /* HERO */
   .hero {
     padding: 120px 60px 80px;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    display: grid; grid-template-columns: 1fr; gap: 80px; align-items: center;
     min-height: 88vh;
     border-bottom: 0.5px solid var(--vv-border);
   }
@@ -114,7 +113,7 @@
     margin-bottom: 24px;
     letter-spacing: -0.01em;
   }
-  .hero-title em { font-style: italic; color: var(--vv-accent); }
+  .hero-title em { color: var(--vv-accent); }
   .hero-sub {
     font-size: 14px; line-height: 1.8;
     color: var(--vv-muted); max-width: 360px;
@@ -122,7 +121,7 @@
   }
   .hero-sub strong { color: var(--vv-text); font-weight: 500; }
   .hero-slogan-ko {
-    font-size: 11px; letter-spacing: 0.08em; color: var(--vv-muted);
+    font-size: 14px; letter-spacing: 0.08em; color: var(--vv-muted);
     border-left: 2px solid var(--vv-purple); padding-left: 14px;
     margin-bottom: 40px; line-height: 1.6;
   }
@@ -246,7 +245,6 @@
   <nav>
     <div class="nav-logo">
       Vivatory
-      <span>비바토리</span>
     </div>
     <div class="nav-links">
       <a href="/vivatory/">Home</a>
@@ -261,85 +259,20 @@
     <div class="hero-left">
       <div class="hero-eyebrow">Trajectory Design</div>
       <h1 class="hero-title">
-        Draw your<br>
-        <em>trajectory</em><br>
-        towards<br>better health
+        Draw your trajectory towards better health
       </h1>
-      <p class="hero-sub">
-        삶을 기록하지 않는다.<br>
-        <strong>패턴을 해석한다.</strong><br><br>
-        당신의 데이터는 이미 말하고 있다.<br>우리는 그것을 듣는 방법을 설계한다.
-      </p>
       <div class="hero-slogan-ko">
-        더 건강한 당신을 향한 궤적을 그립니다<br>
-        <span style="opacity:0.6; font-size:10px;">내일의 나를 그리는 오늘의 도구, Vivatory 드림</span>
+        더 건강한 당신을 향한 궤적을 그립니다. 내일의 나를 그리는 오늘의 도구, Vivatory 드림
       </div>
+      <p class="hero-sub">
+        삶을 기록하고, 패턴을 드러낸다.<br>
+        당신의 데이터를 읽을 수 있는 도구를 설계합니다.
+      </p>
       <div class="hero-actions">
-        <a class="btn-primary" href="/vivatory/tools/">궤적 시작하기</a>
-        <a class="btn-ghost" href="/vivatory/cases/">더 알아보기 <span>→</span></a>
+        <a class="btn-ghost" href="/vivatory/tools/">비바토리의 도구들 더 알아보기 <span>→</span></a>
       </div>
     </div>
 
-    <div class="hero-visual">
-      <div class="chart-label">
-        <span>Cycle Trajectory</span>
-        <strong>12 months</strong>
-      </div>
-      <div class="cycle-chart">
-        <svg viewBox="0 0 400 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#3C1775" stop-opacity="0.08"/>
-              <stop offset="100%" stop-color="#3C1775" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-          <!-- Grid lines -->
-          <line x1="0" y1="40" x2="400" y2="40" stroke="#3C1775" stroke-opacity="0.06" stroke-width="0.5"/>
-          <line x1="0" y1="80" x2="400" y2="80" stroke="#3C1775" stroke-opacity="0.06" stroke-width="0.5"/>
-          <line x1="0" y1="120" x2="400" y2="120" stroke="#3C1775" stroke-opacity="0.06" stroke-width="0.5"/>
-          <!-- Fill area -->
-          <path d="M0,100 C30,80 50,30 80,50 C110,70 130,90 160,40 C190,10 210,60 240,70 C270,80 290,20 320,45 C350,65 380,90 400,75 L400,160 L0,160 Z" fill="url(#g1)"/>
-          <!-- Main curve -->
-          <path d="M0,100 C30,80 50,30 80,50 C110,70 130,90 160,40 C190,10 210,60 240,70 C270,80 290,20 320,45 C350,65 380,90 400,75" fill="none" stroke="#3C1775" stroke-width="1.5" stroke-linecap="round"/>
-          <!-- Data points -->
-          <circle cx="80" cy="50" r="3" fill="#3C1775"/>
-          <circle cx="160" cy="40" r="3" fill="#3C1775"/>
-          <circle cx="240" cy="70" r="3" fill="#6B4BA3"/>
-          <circle cx="320" cy="45" r="3" fill="#3C1775"/>
-          <!-- Highlight dot -->
-          <circle cx="320" cy="45" r="6" fill="none" stroke="#3C1775" stroke-width="1" stroke-opacity="0.4"/>
-          <!-- Month markers -->
-          <text x="0" y="155" font-size="8" fill="#3C1775" fill-opacity="0.35" font-family="Pretendard">Mar</text>
-          <text x="95" y="155" font-size="8" fill="#3C1775" fill-opacity="0.35" font-family="Pretendard">Jun</text>
-          <text x="188" y="155" font-size="8" fill="#3C1775" fill-opacity="0.35" font-family="Pretendard">Sep</text>
-          <text x="285" y="155" font-size="8" fill="#3C1775" fill-opacity="0.35" font-family="Pretendard">Dec</text>
-          <text x="375" y="155" font-size="8" fill="#3C1775" fill-opacity="0.35" font-family="Pretendard">Mar</text>
-        </svg>
-      </div>
-      <div class="chart-phases">
-        <div class="phase">
-          <div class="phase-name">월경</div>
-          <div class="phase-day">1–5</div>
-          <div class="phase-note">관찰 시작</div>
-        </div>
-        <div class="phase">
-          <div class="phase-name">난포기</div>
-          <div class="phase-day">6–13</div>
-          <div class="phase-note">에너지 상승</div>
-        </div>
-        <div class="phase">
-          <div class="phase-name">배란기</div>
-          <div class="phase-day">14–16</div>
-          <div class="phase-note">정점</div>
-        </div>
-        <div class="phase">
-          <div class="phase-name">황체기</div>
-          <div class="phase-day">17–28</div>
-          <div class="phase-note">패턴 해석</div>
-        </div>
-      </div>
-      <div class="vis-watermark">Vivatory</div>
-    </div>
   </section>
 
   <!-- BRAND DUAL -->
@@ -356,38 +289,8 @@
     </div>
   </div>
 
-  <!-- INSIGHTS -->
-  <section class="section">
-    <div class="section-header">
-      <div style="display:flex; align-items:baseline; gap:16px;">
-        <span class="section-num">01</span>
-        <h2 class="section-title">What we interpret</h2>
-      </div>
-      <span class="section-sub">Observation → Pattern → Implication</span>
-    </div>
-    <div class="insights">
-      <div class="insight-card">
-        <div class="insight-num">①</div>
-        <div class="insight-head">데이터는 보고가 아니다</div>
-        <div class="insight-body">숫자는 사실을 전달하지 않는다. 시간 위에 놓였을 때, 패턴이 된다. 패턴은 의미가 된다.</div>
-        <div class="insight-bar"></div>
-      </div>
-      <div class="insight-card">
-        <div class="insight-num">②</div>
-        <div class="insight-head">주기는 예측이 아니라 해석이다</div>
-        <div class="insight-body">28일은 평균이다. 당신의 주기는 다른 언어로 말한다. 우리는 그 언어를 읽는다.</div>
-        <div class="insight-bar"></div>
-      </div>
-      <div class="insight-card">
-        <div class="insight-num">③</div>
-        <div class="insight-head">궤적은 목적지가 아니라 방향이다</div>
-        <div class="insight-body">더 나은 건강은 도달하는 것이 아니다. 매일 조금씩 선명해지는 방향이다.</div>
-        <div class="insight-bar"></div>
-      </div>
-    </div>
-  </section>
 
-  <!-- TRAJECTORY STATEMENT -->
+<!-- TRAJECTORY STATEMENT -->
   <section class="trajectory">
     <div class="traj-label">Core Philosophy</div>
     <h2 class="traj-headline">
@@ -395,58 +298,10 @@
       but <em>interpreting</em><br>
       patterns within it
     </h2>
-    <div class="traj-slogan">
-      <strong>Draw your trajectory towards better health</strong><br>
-      더 건강한 당신을 향한 궤적을 그립니다
-    </div>
-    <div class="traj-cta">
-      <a class="btn-white" href="#">궤적을 시작하다</a>
-    </div>
   </section>
 
-  <!-- PIPELINE -->
-  <section class="section">
-    <div class="section-header">
-      <div style="display:flex; align-items:baseline; gap:16px;">
-        <span class="section-num">02</span>
-        <h2 class="section-title">Content Pipeline</h2>
-      </div>
-      <span class="section-sub">Experience → Insight</span>
-    </div>
-    <div class="pipeline">
-      <div class="pipe-step">
-        <div class="pipe-num">Step 1</div>
-        <div class="pipe-title">Input</div>
-        <div class="pipe-desc">경험 / 데이터 / 관찰</div>
-        <div class="pipe-arrow">›</div>
-      </div>
-      <div class="pipe-step">
-        <div class="pipe-num">Step 2</div>
-        <div class="pipe-title">Extraction</div>
-        <div class="pipe-desc">패턴, 이탈, 긴장을 식별</div>
-        <div class="pipe-arrow">›</div>
-      </div>
-      <div class="pipe-step">
-        <div class="pipe-num">Step 3</div>
-        <div class="pipe-title">Interpretation</div>
-        <div class="pipe-desc">구조적으로 무엇을 의미하는가</div>
-        <div class="pipe-arrow">›</div>
-      </div>
-      <div class="pipe-step">
-        <div class="pipe-num">Step 4</div>
-        <div class="pipe-title">Compression</div>
-        <div class="pipe-desc">핵심 문장 하나로 압축</div>
-        <div class="pipe-arrow">›</div>
-      </div>
-      <div class="pipe-step">
-        <div class="pipe-num">Step 5</div>
-        <div class="pipe-title">Output</div>
-        <div class="pipe-desc">캡션 + 비주얼 디렉션</div>
-      </div>
-    </div>
-  </section>
 
-  <!-- FOOTER -->
+<!-- FOOTER -->
   <footer>
     <div>
       <div class="foot-logo">Vivatory</div>
