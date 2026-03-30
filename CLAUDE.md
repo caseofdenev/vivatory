@@ -98,8 +98,7 @@ cases/periodic-chart/      → ../../fonts/...
 </nav>
 ```
 
-> **주의:** 현재 `index.html`의 nav Cases 링크는 `/vivatory/tools/periodic-chart/`로 되어 있음.
-> 홈페이지 수정은 별도 지시 전까지 변경하지 않는다.
+> Cases 링크: `/vivatory/cases/periodic-chart/`
 
 ---
 
