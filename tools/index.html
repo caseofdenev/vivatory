@@ -1,0 +1,496 @@
+
+<meta name="robots" content="noindex, nofollow">
+<style>
+
+/* ── Times Newer Roman ── */
+@font-face {
+  font-family: 'Times Newer Roman';
+  src: url('../fonts/TimesNewerRoman/TimesNewerRoman-Regular.otf') format('opentype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Times Newer Roman';
+  src: url('../fonts/TimesNewerRoman/TimesNewerRoman-Italic.otf') format('opentype');
+  font-weight: 400; font-style: italic;
+}
+@font-face {
+  font-family: 'Times Newer Roman';
+  src: url('../fonts/TimesNewerRoman/TimesNewerRoman-Bold.otf') format('opentype');
+  font-weight: 700;
+}
+/* ── Pretendard ── */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('../fonts/Pretendard-1.3.9/public/static/Pretendard-Regular.otf') format('opentype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('../fonts/Pretendard-1.3.9/public/static/Pretendard-Medium.otf') format('opentype');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('../fonts/Pretendard-1.3.9/public/static/Pretendard-SemiBold.otf') format('opentype');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('../fonts/Pretendard-1.3.9/public/static/Pretendard-Bold.otf') format('opentype');
+  font-weight: 700;
+}
+/* ── Paperlogy ── */
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../fonts/Paperlogy/Paperlogy-4Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../fonts/Paperlogy/Paperlogy-7Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --vv-purple:    #3C1775;
+  --vv-purple-2:  #4A247F;
+  --vv-accent:    #6B4BA3;
+  --vv-bg:        #F3F2F4;
+  --vv-text:      #1a1018;
+  --vv-muted:     #7a6f83;
+  --vv-border:    rgba(60, 23, 117, 0.15);
+  --vv-border-light: rgba(60, 23, 117, 0.08);
+}
+
+body { background: var(--vv-bg); color: var(--vv-text); }
+.page { font-family: 'Pretendard', sans-serif; min-height: 100vh; }
+
+/* ── NAV ── */
+nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 28px 60px;
+  border-bottom: 0.5px solid var(--vv-border);
+  background: var(--vv-bg);
+  position: sticky; top: 0; z-index: 100;
+}
+.nav-logo {
+  font-family: 'Times Newer Roman', serif;
+  font-size: 18px; letter-spacing: 0.08em;
+  color: var(--vv-purple);
+  display: flex; flex-direction: column; line-height: 1.1;
+  text-decoration: none;
+}
+.nav-logo span {
+  font-size: 10px; letter-spacing: 0.2em; color: var(--vv-muted);
+  font-family: 'Pretendard', sans-serif; font-style: italic;
+}
+.nav-links { display: flex; gap: 40px; }
+.nav-links a {
+  font-size: 12px; letter-spacing: 0.14em; color: var(--vv-muted);
+  text-decoration: none; text-transform: uppercase; transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--vv-purple); }
+.nav-cta {
+  font-size: 11px; letter-spacing: 0.16em; color: var(--vv-purple);
+  border: 0.5px solid var(--vv-purple); padding: 8px 20px;
+  text-decoration: none; text-transform: uppercase; transition: all 0.2s;
+}
+.nav-cta:hover { background: var(--vv-purple); color: #fff; }
+
+/* ── PRODUCT HEADER ── */
+.product-header {
+  padding: 72px 60px 60px;
+  border-bottom: 0.5px solid var(--vv-border);
+  max-width: 900px;
+}
+.eyebrow {
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--vv-accent); margin-bottom: 20px;
+}
+.product-name {
+  font-family: 'Times Newer Roman', serif;
+  font-size: 52px; color: var(--vv-purple);
+  letter-spacing: -0.01em; line-height: 1.05;
+  margin-bottom: 8px;
+}
+.product-name-ko {
+  font-size: 13px; color: var(--vv-accent); letter-spacing: 0.1em;
+  margin-bottom: 28px;
+}
+.product-desc {
+  font-size: 14px; color: var(--vv-muted); line-height: 1.85;
+  max-width: 520px;
+}
+
+/* ── TRIAL SECTION ── */
+.trial-section {
+  padding: 60px 60px 80px;
+  max-width: 900px;
+}
+
+.section-label {
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--vv-accent); margin-bottom: 28px;
+}
+
+/* Date grid */
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 28px;
+}
+.date-field { display: flex; flex-direction: column; gap: 6px; }
+
+.field-num {
+  font-family: 'Times Newer Roman', serif;
+  font-size: 11px; color: var(--vv-accent);
+  letter-spacing: 0.08em;
+}
+.field-label {
+  font-size: 14px; font-weight: 500; color: var(--vv-text);
+  line-height: 1.3;
+}
+.field-label-en {
+  font-size: 11px; color: var(--vv-muted); letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+.date-input {
+  padding: 12px 14px;
+  border: 1px solid var(--vv-border);
+  border-radius: 6px;
+  background: #fff;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 14px; color: var(--vv-text);
+  outline: none; cursor: pointer; width: 100%;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+}
+.date-input:focus {
+  border-color: var(--vv-accent);
+  box-shadow: 0 0 0 3px var(--vv-border-light);
+}
+.date-input::-webkit-calendar-picker-indicator {
+  opacity: 0.35;
+  cursor: pointer;
+  filter: invert(20%) sepia(60%) saturate(1500%) hue-rotate(250deg);
+}
+
+/* hint */
+.input-hint {
+  font-size: 12px; color: var(--vv-muted); line-height: 1.75;
+  margin-bottom: 36px;
+}
+
+/* divider */
+.divider {
+  height: 0.5px; background: var(--vv-border); margin-bottom: 32px;
+}
+
+/* actions */
+.actions { display: flex; align-items: center; gap: 16px; }
+.btn-primary {
+  background: var(--vv-purple); color: #fff;
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 13px 32px; border: none; cursor: pointer;
+  font-family: 'Pretendard', sans-serif;
+  transition: background 0.2s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-primary:hover { background: var(--vv-purple-2); }
+.btn-reset {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--vv-muted); background: none;
+  border: 0.5px solid var(--vv-border);
+  padding: 12px 20px; cursor: pointer;
+  font-family: 'Pretendard', sans-serif;
+  transition: color 0.2s, border-color 0.2s;
+}
+.btn-reset:hover { color: var(--vv-purple); border-color: var(--vv-purple); }
+
+/* ── RESULT PANEL ── */
+.result-panel {
+  display: none;
+  margin-top: 48px;
+  border: 0.5px solid var(--vv-border);
+  background: #fff;
+}
+.result-panel.visible { display: block; }
+
+.result-top {
+  padding: 20px 28px;
+  border-bottom: 0.5px solid var(--vv-border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.result-title {
+  font-family: 'Times Newer Roman', serif;
+  font-size: 15px; color: var(--vv-purple); font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.result-badge {
+  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--vv-accent); border: 0.5px solid var(--vv-border);
+  padding: 4px 10px;
+}
+
+.result-body { padding: 28px; }
+
+/* Metrics */
+.result-metrics {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--vv-border);
+  border: 0.5px solid var(--vv-border);
+  margin-bottom: 28px;
+}
+.metric {
+  background: var(--vv-bg); padding: 24px 20px;
+}
+.metric-label {
+  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--vv-muted); margin-bottom: 10px;
+}
+.metric-value {
+  font-family: 'Times Newer Roman', serif;
+  font-size: 40px; color: var(--vv-purple); line-height: 1;
+  margin-bottom: 4px;
+}
+.metric-unit { font-size: 11px; color: var(--vv-muted); letter-spacing: 0.06em; }
+
+/* Timeline bar */
+.timeline-wrap { margin-bottom: 24px; }
+.timeline-label {
+  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--vv-muted); margin-bottom: 12px;
+}
+.timeline-track {
+  height: 4px; background: var(--vv-border-light);
+  border-radius: 2px; margin-bottom: 10px; position: relative;
+}
+.timeline-bleed {
+  position: absolute; top: 0; left: 0; bottom: 0;
+  background: linear-gradient(90deg, var(--vv-purple), var(--vv-accent));
+  border-radius: 2px;
+  transition: width 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.timeline-ticks {
+  display: flex; justify-content: space-between;
+}
+.timeline-tick { font-size: 10px; color: var(--vv-muted); }
+.timeline-tick.active { color: var(--vv-purple); font-weight: 500; }
+
+/* Note */
+.result-note {
+  border-left: 1.5px solid var(--vv-purple);
+  padding: 16px 20px;
+  background: var(--vv-border-light);
+}
+.note-label {
+  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--vv-accent); margin-bottom: 6px;
+}
+.note-text { font-size: 13px; color: var(--vv-text); line-height: 1.85; }
+
+/* ── FOOTER ── */
+footer {
+  padding: 60px 60px 40px;
+  display: flex; justify-content: space-between; align-items: flex-end;
+  border-top: 0.5px solid var(--vv-border);
+}
+.foot-logo { font-family: 'Times Newer Roman', serif; font-size: 22px; color: var(--vv-purple); }
+.foot-tagline { font-size: 10px; color: var(--vv-muted); letter-spacing: 0.14em; margin-top: 6px; }
+.foot-right { text-align: right; font-size: 10px; color: var(--vv-muted); letter-spacing: 0.08em; line-height: 1.8; }
+
+@media (max-width: 900px) {
+  nav { padding: 20px 24px; }
+  .nav-links { display: none; }
+  .product-header { padding: 48px 24px 40px; }
+  .product-name { font-size: 36px; }
+  .trial-section { padding: 40px 24px 60px; }
+  .date-grid { grid-template-columns: 1fr; gap: 16px; }
+  .result-metrics { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 24px; padding: 40px 24px 32px; }
+  .foot-right { text-align: left; }
+}
+</style>
+
+<div class="page">
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="/vivatory/">
+      Vivatory
+      <span>비바토리</span>
+    </a>
+    <div class="nav-links">
+      <a href="/vivatory/">Home</a>
+      <a href="/vivatory/tools/" class="active">Tools</a>
+      <a href="/vivatory/cases/">Cases</a>
+    </div>
+    <a class="nav-cta" href="#">시작하기</a>
+  </nav>
+
+  <!-- PRODUCT HEADER -->
+  <header class="product-header">
+    <div class="eyebrow">Vivatory Tools &nbsp;·&nbsp; Trial</div>
+    <h1 class="product-name">Periodic Chart</h1>
+    <div class="product-name-ko">생리 주기 차트</div>
+    <p class="product-desc">
+      하나의 주기를 입력합니다.<br>
+      출혈 기간과 다음 주기 예상일을 기반으로<br>
+      사이클 길이와 출혈 비율을 계산하고 시각화합니다.
+    </p>
+  </header>
+
+  <!-- TRIAL FORM -->
+  <section class="trial-section">
+
+    <div class="section-label">날짜 입력 &nbsp;— 1 Cycle</div>
+
+    <div class="date-grid">
+
+      <div class="date-field">
+        <span class="field-num">01</span>
+        <span class="field-label">출혈 시작일</span>
+        <span class="field-label-en">Bleed Start</span>
+        <input type="date" id="d1" class="date-input" onchange="clearResult()">
+      </div>
+
+      <div class="date-field">
+        <span class="field-num">02</span>
+        <span class="field-label">출혈 종료일</span>
+        <span class="field-label-en">Bleed End</span>
+        <input type="date" id="d2" class="date-input" onchange="clearResult()">
+      </div>
+
+      <div class="date-field">
+        <span class="field-num">03</span>
+        <span class="field-label">다음 출혈 시작일</span>
+        <span class="field-label-en">Next Bleed Start</span>
+        <input type="date" id="d3" class="date-input" onchange="clearResult()">
+      </div>
+
+    </div>
+
+    <p class="input-hint">
+      출혈이 시작된 첫날을 ①로, 마지막 출혈일을 ②로 입력합니다.<br>
+      다음 달 출혈 시작일(③)이 확인된 경우에만 주기 길이를 계산할 수 있습니다.
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="actions">
+      <button class="btn-primary" onclick="calculate()">차트 생성</button>
+      <button class="btn-reset" onclick="resetForm()">초기화</button>
+    </div>
+
+    <!-- RESULT -->
+    <div id="result-panel" class="result-panel">
+      <div class="result-top">
+        <span class="result-title">Cycle Analysis</span>
+        <span class="result-badge">Trial Result</span>
+      </div>
+      <div class="result-body">
+
+        <div class="result-metrics">
+          <div class="metric">
+            <div class="metric-label">Cycle Length</div>
+            <div class="metric-value" id="r-cycle">—</div>
+            <div class="metric-unit">days</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Bleed Duration</div>
+            <div class="metric-value" id="r-bleed">—</div>
+            <div class="metric-unit">days</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Bleed Ratio</div>
+            <div class="metric-value" id="r-ratio">—</div>
+            <div class="metric-unit">of cycle</div>
+          </div>
+        </div>
+
+        <div class="timeline-wrap">
+          <div class="timeline-label">Cycle Timeline</div>
+          <div class="timeline-track">
+            <div class="timeline-bleed" id="r-bar" style="width:0%"></div>
+          </div>
+          <div class="timeline-ticks">
+            <span class="timeline-tick" id="r-t1">—</span>
+            <span class="timeline-tick active" id="r-t2">—</span>
+            <span class="timeline-tick" id="r-t3">—</span>
+          </div>
+        </div>
+
+        <div class="result-note">
+          <div class="note-label">Observation</div>
+          <div class="note-text" id="r-note">—</div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="foot-logo">Vivatory</div>
+      <div class="foot-tagline">내일의 나를 그리는 오늘의 도구</div>
+    </div>
+    <div class="foot-right">
+      비바토리 · Denev 데네브<br>
+      Draw your trajectory towards better health<br>
+      <span style="opacity:0.4">© 2025 Vivatory</span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+function parseD(id) {
+  const v = document.getElementById(id).value;
+  return v ? new Date(v + 'T00:00:00') : null;
+}
+function diff(a, b) { return Math.round((b - a) / 86400000); }
+function fmt(d) { return d.toLocaleDateString('ko-KR', { month: 'short', day: 'numeric' }); }
+
+function clearResult() {
+  document.getElementById('result-panel').classList.remove('visible');
+}
+
+function calculate() {
+  const d1 = parseD('d1'), d2 = parseD('d2'), d3 = parseD('d3');
+  if (!d1 || !d2 || !d3) { alert('날짜 3개를 모두 입력해 주세요.'); return; }
+  if (d2 <= d1) { alert('출혈 종료일은 시작일 이후여야 합니다.'); return; }
+  if (d3 <= d2) { alert('다음 출혈 시작일은 종료일 이후여야 합니다.'); return; }
+
+  const cycleLen = diff(d1, d3);
+  const bleedLen = diff(d1, d2) + 1;
+  const ratio    = Math.round((bleedLen / cycleLen) * 100);
+
+  document.getElementById('r-cycle').textContent = cycleLen;
+  document.getElementById('r-bleed').textContent = bleedLen;
+  document.getElementById('r-ratio').textContent = ratio + '%';
+  document.getElementById('r-bar').style.width   = Math.min(ratio, 100) + '%';
+  document.getElementById('r-t1').textContent    = fmt(d1);
+  document.getElementById('r-t2').textContent    = fmt(d2) + ' (출혈 종료)';
+  document.getElementById('r-t3').textContent    = fmt(d3);
+
+  let note;
+  if      (cycleLen < 21) note = cycleLen + '일 주기. 21일 미만 — 빈발월경 범위에 해당한다. 다음 주기에서도 동일하게 관찰되면 기록을 지속하라.';
+  else if (cycleLen > 35) note = cycleLen + '일 주기. 35일 초과 — 희발월경 범위에 해당할 수 있다. 패턴이 반복되는지 확인하라.';
+  else if (bleedLen > 7)  note = '출혈 기간 ' + bleedLen + '일. 7일을 초과한다. 단일 주기만으로 판단하지 않는다. 반복될 때 의미가 생긴다.';
+  else note = cycleLen + '일 주기. 출혈 ' + bleedLen + '일. 이것은 하나의 주기다. 패턴은 복수의 주기가 쌓일 때 가시화된다.';
+
+  document.getElementById('r-note').textContent = note;
+  document.getElementById('result-panel').classList.add('visible');
+  document.getElementById('result-panel').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function resetForm() {
+  ['d1','d2','d3'].forEach(id => document.getElementById(id).value = '');
+  clearResult();
+}
+</script>
