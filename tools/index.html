@@ -83,10 +83,6 @@ nav {
   display: flex; flex-direction: column; line-height: 1.1;
   text-decoration: none;
 }
-.nav-logo span {
-  font-size: 10px; letter-spacing: 0.2em; color: var(--vv-muted);
-  font-family: 'Pretendard', sans-serif; font-style: italic;
-}
 .nav-links { display: flex; gap: 40px; }
 .nav-links a {
   font-size: 12px; letter-spacing: 0.14em; color: var(--vv-muted);
@@ -303,9 +299,24 @@ footer {
 .foot-tagline { font-size: 10px; color: var(--vv-muted); letter-spacing: 0.14em; margin-top: 6px; }
 .foot-right { text-align: right; font-size: 10px; color: var(--vv-muted); letter-spacing: 0.08em; line-height: 1.8; }
 
+/* HAMBURGER */
+.hamburger {
+  display: none; flex-direction: column; justify-content: center;
+  gap: 5px; cursor: pointer; background: none; border: none; padding: 4px;
+}
+.hamburger span { display: block; width: 20px; height: 1px; background: var(--vv-purple); transition: all 0.2s; }
+.mobile-menu {
+  display: none; position: fixed; top: 0; left: 0; right: 0;
+  background: var(--vv-bg); padding: 80px 24px 40px;
+  border-bottom: 0.5px solid var(--vv-border);
+  z-index: 99; flex-direction: column; gap: 28px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-size: 13px; letter-spacing: 0.14em; color: var(--vv-muted); text-decoration: none; text-transform: uppercase; }
+.mobile-menu a:hover, .mobile-menu a.active { color: var(--vv-purple); }
+
 @media (max-width: 900px) {
   nav { padding: 20px 24px; }
-  .nav-links { display: none; }
   .product-header { padding: 48px 24px 40px; }
   .product-name { font-size: 36px; }
   .trial-section { padding: 40px 24px 60px; }
@@ -314,23 +325,31 @@ footer {
   footer { flex-direction: column; gap: 24px; padding: 40px 24px 32px; }
   .foot-right { text-align: left; }
 }
+@media (max-width: 600px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+}
 </style>
 
 <div class="page">
 
   <!-- NAV -->
   <nav>
-    <a class="nav-logo" href="/vivatory/">
-      Vivatory
-      <span>비바토리</span>
-    </a>
+    <a class="nav-logo" href="/vivatory/">Vivatory</a>
     <div class="nav-links">
       <a href="/vivatory/">Home</a>
       <a href="/vivatory/tools/" class="active">Tools</a>
       <a href="/vivatory/cases/">Cases</a>
     </div>
-    <a class="nav-cta" href="#">시작하기</a>
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="메뉴">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/vivatory/">Home</a>
+    <a href="/vivatory/tools/" class="active">Tools</a>
+    <a href="/vivatory/cases/">Cases</a>
+  </div>
 
   <!-- PRODUCT HEADER -->
   <header class="product-header">
@@ -493,5 +512,9 @@ function calculate() {
 function resetForm() {
   ['d1','d2','d3'].forEach(id => document.getElementById(id).value = '');
   clearResult();
+}
+
+function toggleMobileMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
 }
 </script>
